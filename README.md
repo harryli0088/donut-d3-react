@@ -1,5 +1,15 @@
 # donut-d3-react
 
+
+## Development
+```
+npm start #live reload when you make a change
+
+#open another terminal / tab
+cd example
+npm start #live reload when you make a change
+```
+
 > donut vis using d3 and react
 
 [![NPM](https://img.shields.io/npm/v/donut-d3-react.svg)](https://www.npmjs.com/package/donut-d3-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
@@ -15,15 +25,27 @@ npm install --save donut-d3-react
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'donut-d3-react'
+import Donut from 'donut-d3-react'
 
-class Example extends Component {
+var data = [
+{"title":"A","value":4},
+{"title":"B","value":7},
+{"title":"C","value":6},
+{"title":"D","value":8},
+{"title":"E","value":1},
+{"title":"F","value":5}
+];
+
+export default class App extends Component {
   render () {
     return (
-      <MyComponent />
+      <div>
+        <Donut data={data}/>
+      </div>
     )
   }
 }
+
 ```
 
 ## License
