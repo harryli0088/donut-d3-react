@@ -1,0 +1,7 @@
+.pie .arc {
+  cursor: pointer;
+  transition: 1s;
+}
+.pie .arc:hover {
+  opacity: 0.9;
+}
