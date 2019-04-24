@@ -1,23 +1,23 @@
 # donut-d3-react
+> responsive donut vis using d3 and react
 
+![Demo](/example/donut-d3-react.gif)
 
 ## Development
-```
+```bash
+npm install
 npm start #live reload when you make a change
 
 #open another terminal / tab
 cd example
+npm install
 npm start #live reload when you make a change
 ```
-
-> donut vis using d3 and react
-
-[![NPM](https://img.shields.io/npm/v/donut-d3-react.svg)](https://www.npmjs.com/package/donut-d3-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save donut-d3-react
+npm install --save harryli0088/donut-d3-react
 ```
 
 ## Usage
