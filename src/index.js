@@ -49,7 +49,7 @@ export default class Donut extends Component {
     this.setState({
       value: d.data.value,
       title: d.data.title,
-      percentage: (Math.round(10000*d.data.value/total)/100)+"%"
+      percentage: clampPercentage(d.data.value/total)
     });
   }
 
@@ -76,7 +76,7 @@ export default class Donut extends Component {
     return (
       <g key={i} transform={"translate(0,"+(i*KEY_TEXT_OFFSET)+")"}>
         <rect className="key" fill={this.colorScale(i)} x="0" y="0" width="16" height="16"></rect>
-        <text transform={"translate("+KEY_TEXT_OFFSET+",14)"}>{d.data.title} | {d.data.value} | {(Math.round(10000*d.data.value/total)/100)+"%"}</text>
+        <text transform={"translate("+KEY_TEXT_OFFSET+",14)"}>{d.data.title} | {clampNumber(d.data.value)} | {clampPercentage(d.data.value/total)}</text>
       </g>
     );
   }
@@ -101,7 +101,7 @@ export default class Donut extends Component {
             <g>
               <text textAnchor="middle" transform="translate(0,-40)" style={{fontSize:diameter/25+"px"}}>{this.state.title}</text>
               <text textAnchor="middle" transform="translate(0,20)" style={{fontSize:diameter/12+"px"}}>{this.state.percentage}</text>
-              <text textAnchor="middle" transform="translate(0,80)" style={{fontSize:diameter/12+"px"}}>{this.state.value}</text>
+              <text textAnchor="middle" transform="translate(0,80)" style={{fontSize:diameter/12+"px"}}>{clampNumber(this.state.value)}</text>
             </g>
           </g>
         </svg>
@@ -125,4 +125,13 @@ class Slice extends Component {
       <path className="arc" d={arc(d)} fill={fill} onMouseOver={() => this.props.mouseover(d, this.props.total)} onMouseOut={() => this.props.mouseout()}/>
     );
   }
+}
+
+
+function clampNumber(number) {
+  return Math.round(100 * number) / 100;
+}
+
+function clampPercentage(number) {
+  return Math.round(10000 * number) / 100 + "%";
 }
