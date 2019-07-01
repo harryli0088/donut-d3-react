@@ -101,7 +101,7 @@ export default class Donut extends Component {
             <g>
               <text textAnchor="middle" transform="translate(0,-40)" style={{fontSize:diameter/25+"px"}}>{this.state.title}</text>
               <text textAnchor="middle" transform="translate(0,20)" style={{fontSize:diameter/12+"px"}}>{this.state.percentage}</text>
-              <text textAnchor="middle" transform="translate(0,80)" style={{fontSize:diameter/12+"px"}}>{clampNumber(this.state.value)}</text>
+              <text textAnchor="middle" transform="translate(0,80)" style={{fontSize:diameter/12+"px"}}>{typeof this.state.value==="string" ? "" : clampNumber(this.state.value)}</text>
             </g>
           </g>
         </svg>
