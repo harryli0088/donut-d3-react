@@ -1,6 +1,6 @@
 {
   "name": "donut-d3-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "donut vis using d3 and react",
   "author": "harryli0088",
   "license": "MIT",
