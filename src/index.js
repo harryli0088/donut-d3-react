@@ -9,9 +9,9 @@ export default class Donut extends Component {
     data: PropTypes.array.isRequired, //data: [ {value: number, title: string}, ... ]
 
     colorScale: PropTypes.func,
-    onArcMouseOverCallback: PropTypes.func,
-    onArcMouseOutCallback: PropTypes.func,
-    onArcClickCallback: PropTypes.func,
+    onArcMouseOverHandler: PropTypes.func,
+    onArcMouseOutHandler: PropTypes.func,
+    onArcClickHandler: PropTypes.func,
     maxDiameter: PropTypes.number,
     outerToInnerRadiiRatio: PropTypes.number,
     showKey: PropTypes.bool,
@@ -24,9 +24,9 @@ export default class Donut extends Component {
 
   static defaultProps = {
     colorScale: d3.scaleOrdinal(d3.schemeCategory10),
-    onArcMouseOverCallback: function(e, d) {},
-    onArcMouseOutCallback:  function(e, d) {},
-    onArcClickCallback:  function(e, d) {},
+    onArcMouseOverHandler: function(e, d) {},
+    onArcMouseOutHandler:  function(e, d) {},
+    onArcClickHandler:  function(e, d) {},
     maxDiameter: 500,
     outerToInnerRadiiRatio: 2,
     showKey: true,
@@ -71,13 +71,13 @@ export default class Donut extends Component {
       percentage: roundPercentage(d.data.value/total)+"%"
     });
 
-    this.props.onArcMouseOverCallback(e, d)
+    this.props.onArcMouseOverHandler(e, d)
   }
 
   mouseoutArc = e => {
     this.setState({value: "", title: "", percentage: ""});
 
-    this.props.onArcMouseOutCallback(e)
+    this.props.onArcMouseOutHandler(e)
   }
 
 
@@ -90,7 +90,7 @@ export default class Donut extends Component {
         total={total}
         mouseover={this.mouseoverArc}
         mouseout={this.mouseoutArc}
-        onclick={this.props.onArcClickCallback}
+        onclick={this.props.onArcClickHandler}
         fill={this.props.colorScale(i)}
       />
     );

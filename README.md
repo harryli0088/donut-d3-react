@@ -34,9 +34,9 @@ export default class App extends Component {
 
         //optional props
         //colorScale defaults to d3.scaleOrdinal(d3.schemeCategory10)
-        onArcMouseOverCallback={function(e, d) {}}
-        onArcMouseOutCallback={function(e, d) {}}
-        onArcClickCallback={function(e, d) {}}
+        onArcMouseOverHandler={function(e, d) {}}
+        onArcMouseOutHandler={function(e, d) {}}
+        onArcClickHandler={function(e, d) {}}
         maxDiameter={500}
         outerToInnerRadiiRatio={2}
         showKey={true}
@@ -56,9 +56,9 @@ export default class App extends Component {
 
 Optional props
 - `colorScale` {Function} defaults to `d3.scaleOrdinal(d3.schemeCategory10)`
-- `onArcMouseOverCallback` {Function} defaults to `function(e, d) {}`
-- `onArcMouseOutCallback` {Function} defaults to `function(e, d) {}`
-- `onArcClickCallback` {Function} defaults to `function(e, d) {}`
+- `onArcMouseOverHandler` {Function} defaults to `function(e, d) {}`
+- `onArcMouseOutHandler` {Function} defaults to `function(e, d) {}`
+- `onArcClickHandler` {Function} defaults to `function(e, d) {}`
 - `maxDiameter` {Number} defaults to `500`
 - `outerToInnerRadiiRatio` {Number} defaults to `2`
 - `showKey` {Boolean} defaults to `true`
