@@ -126,9 +126,9 @@ export default class Donut extends Component {
             {pie(data).map((d, i) => this.renderArc(d, i, diameter/2, total))}
 
             <g>
-              <text textAnchor="middle" transform="translate(0,-40)" style={{fontSize:diameter/25+"px"}}>{this.state.title}</text>
-              <text textAnchor="middle" transform="translate(0,20)" style={{fontSize:diameter/12+"px"}}>{this.state.percentage}</text>
-              <text textAnchor="middle" transform="translate(0,80)" style={{fontSize:diameter/12+"px"}}>{this.state.value}</text>
+            <text textAnchor="middle" transform={"translate(0,"+(diameter/25)+")"} style={{fontSize:diameter/12+"px"}}>{this.state.percentage}</text>
+              <text textAnchor="middle" transform={"translate(0,"+(-2*diameter/25)+")"} style={{fontSize:diameter/25+"px"}}>{this.state.title}</text>
+              <text textAnchor="middle" transform={"translate(0,"+(4*diameter/25)+")"} style={{fontSize:diameter/12+"px"}}>{typeof this.state.value==="string" ? "" : roundNumber(this.state.value)}</text>
             </g>
           </g>
         </svg>
@@ -162,6 +162,9 @@ class Arc extends Component {
   }
 }
 
+function roundNumber(number) {
+  return Math.round(100*number)/100;
+}
 
 function roundPercentage(number) {
   return Math.round(10000*number)/100;
