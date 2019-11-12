@@ -1,7 +1,7 @@
-.pie .arc {
+.donut .arc {
   cursor: pointer;
   transition: 1s;
 }
-.pie .arc:hover {
+.donut .arc:hover {
   opacity: 0.9;
 }

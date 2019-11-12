@@ -1,18 +1,7 @@
 # donut-d3-react
-> responsive donut vis using d3 and react
+> responsive, highlight-able donut vis with key using d3 and react
 
 ![Demo](/example/donut-d3-react.gif)
-
-## Development
-```bash
-npm install
-npm start #live reload when you make a change
-
-#open another terminal / tab
-cd example
-npm install
-npm start #live reload when you make a change
-```
 
 ## Install
 
@@ -27,26 +16,58 @@ import React, { Component } from 'react'
 
 import Donut from 'donut-d3-react'
 
-var data = [
-{"title":"A","value":4},
-{"title":"B","value":7},
-{"title":"C","value":6},
-{"title":"D","value":8},
-{"title":"E","value":1},
-{"title":"F","value":5}
+let data = [
+  {"title":"A","value":4},
+  {"title":"B","value":7},
+  {"title":"C","value":6},
+  {"title":"D","value":8},
+  {"title":"E","value":1},
+  {"title":"F","value":5}
 ];
+
 
 export default class App extends Component {
   render () {
     return (
-      <div>
-        <Donut data={data}/>
-      </div>
+      <Donut
+        data={data} //data: [ {value: number, title: string}, ... ]
+
+        //optional props
+        //colorScale defaults to d3.scaleOrdinal(d3.schemeCategory10)
+        onArcMouseOverCallback={function(e, d) {}}
+        onArcMouseOutCallback={function(e, d) {}}
+        onArcClickCallback={function(e, d) {}}
+        maxDiameter={500}
+        outerToInnerRadiiRatio={2}
+        showKey={true}
+        keyTextOffsetX={20}
+        keyTextOffsetY={14}
+        keyFontSize={16}
+        keyRowSeparation={20}
+        keyRectSize={16}
+      />
     )
   }
 }
-
 ```
+
+### Props
+- `data` {Array} Required in the format `[ {value: number, title: string}, ... ]`
+
+Optional props
+- `colorScale` {Function} defaults to `d3.scaleOrdinal(d3.schemeCategory10)`
+- `onArcMouseOverCallback` {Function} defaults to `function(e, d) {}`
+- `onArcMouseOutCallback` {Function} defaults to `function(e, d) {}`
+- `onArcClickCallback` {Function} defaults to `function(e, d) {}`
+- `maxDiameter` {Number} defaults to `500`
+- `outerToInnerRadiiRatio` {Number} defaults to `2`
+- `showKey` {Boolean} defaults to `true`
+- `keyTextOffsetX` {Number} defaults to `20`
+- `keyTextOffsetY` {Number} defaults to `14`
+- `keyFontSize` {Number} defaults to `16`
+- `keyRowSeparation` {Number} defaults to `20`
+- `keyRectSize` {Number} defaults to `16`
+
 
 ## License
 
